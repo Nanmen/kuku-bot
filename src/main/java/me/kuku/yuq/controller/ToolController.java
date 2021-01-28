@@ -603,4 +603,9 @@ public class ToolController {
     public String baoanDariy() {
         return toolLogic.baoanDariy();
     }
+
+    @Action("在人间")
+    public String humanWord() {
+        return toolLogic.humanWord();
+    }
 }

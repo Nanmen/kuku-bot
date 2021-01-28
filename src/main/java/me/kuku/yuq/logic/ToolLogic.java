@@ -66,4 +66,5 @@ public interface ToolLogic {
         return executeCode(code, codeType.getType());
     }
     String baoanDariy();
+    String humanWord();
 }

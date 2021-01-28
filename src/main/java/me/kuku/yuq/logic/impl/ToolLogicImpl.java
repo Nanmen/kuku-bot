@@ -1,10 +1,16 @@
 package me.kuku.yuq.logic.impl;
 
+import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.RandomUtil;
+import cn.hutool.core.util.StrUtil;
 import com.IceCreamQAQ.Yu.util.IO;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import lombok.val;
+import me.kuku.yuq.constant.BaoAnDariy;
+import me.kuku.yuq.constant.WorldDariy;
 import me.kuku.yuq.logic.ToolLogic;
 import me.kuku.yuq.pojo.Result;
 import me.kuku.yuq.pojo.UA;
@@ -448,7 +454,22 @@ public class ToolLogicImpl implements ToolLogic {
 
     @Override
     public String baoanDariy() {
-        return null;
+        DateTime dateTime = DateUtil.offsetDay(new Date(),
+                RandomUtil.randomInt(-300,0));
+        StringBuilder builder = new StringBuilder(DateUtil.formatChineseDate(dateTime, false))
+                .append("  ")
+                .append(DateUtil.dayOfWeekEnum(dateTime).toChinese()).append("  ")
+                .append(RandomUtil.randomString("晴雨雷雪阴",1));
+        builder.append(StrUtil.CRLF);
+        int messageId  = RandomUtil.randomInt(0, BaoAnDariy.txtArray.length);
+        builder.append(BaoAnDariy.txtArray[messageId]);
+        return builder.toString();
+    }
+
+    @Override
+    public String humanWord() {
+        int messageId = RandomUtil.randomInt(0, WorldDariy.world.size());
+        return WorldDariy.world.get(messageId);
     }
 
     @Override
