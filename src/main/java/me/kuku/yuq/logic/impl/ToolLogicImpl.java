@@ -456,7 +456,7 @@ public class ToolLogicImpl implements ToolLogic {
     public String baoanDariy() {
         DateTime dateTime = DateUtil.offsetDay(new Date(),
                 RandomUtil.randomInt(-300,0));
-        StringBuilder builder = new StringBuilder(DateUtil.formatChineseDate(dateTime, false))
+        StringBuilder builder = new StringBuilder(DateUtil.formatChineseDate(dateTime.toCalendar(), false))
                 .append("  ")
                 .append(DateUtil.dayOfWeekEnum(dateTime).toChinese()).append("  ")
                 .append(RandomUtil.randomString("晴雨雷雪阴",1));
