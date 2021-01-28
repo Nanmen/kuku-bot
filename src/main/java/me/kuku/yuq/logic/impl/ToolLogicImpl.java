@@ -108,7 +108,9 @@ public class ToolLogicImpl implements ToolLogic {
         if (jsonObject.getInteger("code") == 200){
             JSONObject data = jsonObject.getJSONObject("data");
             return data.getString("content") + "-----" + data.getString("author");
-        }else return "获取失败！";
+        }else {
+            return "获取失败！";
+        }
     }
 
     @Override
@@ -442,6 +444,11 @@ public class ToolLogicImpl implements ToolLogic {
     public String music163cloud() throws IOException {
         JSONObject jsonObject = OkHttpUtils.getJson("http://api.heerdev.top/nemusic/random");
         return jsonObject.getString("text");
+    }
+
+    @Override
+    public String baoanDariy() {
+        return null;
     }
 
     @Override

@@ -65,4 +65,5 @@ public interface ToolLogic {
     default String executeCode(String code, CodeType codeType) throws IOException{
         return executeCode(code, codeType.getType());
     }
+    String baoanDariy();
 }

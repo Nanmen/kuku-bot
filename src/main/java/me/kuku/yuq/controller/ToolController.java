@@ -4,6 +4,7 @@ import com.IceCreamQAQ.Yu.annotation.Action;
 import com.IceCreamQAQ.Yu.annotation.Config;
 import com.IceCreamQAQ.Yu.annotation.Synonym;
 import com.IceCreamQAQ.Yu.di.YuContext;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.icecreamqaq.yuq.FunKt;
@@ -596,5 +597,10 @@ public class ToolController {
         Message message = session.waitNextMessage();
         String code = Message.Companion.firstString(message);
         return toolLogic.executeCode(code, codeType);
+    }
+
+    @Action("保安日记")
+    public String baoanDariy() {
+        return toolLogic.baoanDariy();
     }
 }
